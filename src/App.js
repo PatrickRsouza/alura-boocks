@@ -1,14 +1,26 @@
 import './App.css';
-import logo from './imagens/logo.svg'
+import Logo from './componentes/Logo';
+import perfil from './imagens/perfil.svg'
+import sacola from './imagens/sacola.svg'
+
+const textoOpcoes = ['CATEGORIAS', 'FAVORITOS', 'MINHA ESTANTE']
+const icones = [perfil, sacola] 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className='logo'>
-          <img src={logo} alt='Logo do Alura Book'/>
-          <p><strong>Alura</strong>Book</p>
-        </div>
+        <Logo></Logo>
+        <ul className='opcoes'>
+          { textoOpcoes.map( (texto) => (
+            <li className='opcao'><p>{texto}</p></li>
+          ) )  }
+        </ul>
+        <ul className='icones'>
+          { icones.map( (icone) => (
+            <li className='icone'><img src={icone}></img></li>
+          ) )}
+        </ul>
       </header>
     </div>
   );
